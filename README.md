@@ -1,2 +1,2 @@
 # HSFNet
-The code will be released soon.
+The complete code will be released soon.
