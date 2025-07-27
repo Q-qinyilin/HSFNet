@@ -9,7 +9,7 @@ import os
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(project_root)
 from lib.pvtv2 import pvt_v2_b2
-from lib.HierarFeature import HierarFeature, FrequencyExtract
+from lib.conv_block import Hblock, FrequencyExtract
 from lib.deform_conv import DeformableConv2d as dcn2d
 
 class BasicConv2d(nn.Module):
@@ -420,7 +420,7 @@ class Decoder(nn.Module):
 
         channels = 128
         dims = [64,128,320,512]
-        self.HFL = HierarFeature(channels)
+        self.Hblock = Hblock(channels)
         self.side_conv1 = nn.Conv2d(dims[0], channels, kernel_size=3, stride=1, padding=1)
         self.side_conv2 = nn.Conv2d(dims[1], channels, kernel_size=3, stride=1, padding=1)
         self.side_conv3 = nn.Conv2d(dims[2], channels, kernel_size=3, stride=1, padding=1)
@@ -450,7 +450,7 @@ class Decoder(nn.Module):
         x2_128 = self.side_conv2(x2)
         x3_128 = self.side_conv3(x3)
         x4_128 = self.side_conv4(x4)
-        x5 = self.HFL(x4_128,x3_128,x2_128)   # 128 44 44
+        x5 = self.Hblock(x4_128,x3_128,x2_128)   # 128 44 44
 
         E2 = torch.cat((x2_128, x5), 1)
         E3 = torch.cat((x3_128, F.interpolate(x5, size=x3.size()[2:], mode='bilinear')), 1)
