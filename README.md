@@ -19,7 +19,7 @@ resentations and shallow spatial details. Extensive experiments on five public d
 demonstrate the superiority of our approach. It achieves an mDice of 0.932 on Kvasir-SEG
 and 0.818 on ETIS, outperforming 11 state-of-the-art techniques.
 
-
+![The overall framework of HFSNet](figtures/Fig2.png)
 
 
 # 1. Create environment
