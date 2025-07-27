@@ -493,20 +493,7 @@ class FrequencyExtract(nn.Module):
         self.freq_thres=0.25 * 1.4
 
     def forward(self, x):
-        freq_weight = self.freq_weight_conv(x)   #  [8 2 11 11]
-        
-        if self.act == 'sigmoid':       
-            freq_weight = freq_weight.sigmoid()
-        elif self.act == 'softmax':
-            freq_weight = freq_weight.softmax(dim=1) * freq_weight.shape[1]
-        else:
-            raise NotImplementedError
-        x_fft = torch.fft.fftshift(torch.fft.fft2(x)) 
-        low_mask = torch.zeros_like(x_fft, device=x_fft.device) 
-        high_mask = torch.ones_like(x_fft, device=x_fft.device) 
-        _, _, h, w = x.shape
-        low_mask[:,:,round(h/2 - h * self.freq_thres):round(h/2 + h * self.freq_thres), round(w/2 - w * self.freq_thres):round(w/2 + w * self.freq_thres)] = 1.0
-        high_mask[:,:,round(h/2 - h * self.freq_thres):round(h/2 + h * self.freq_thres), round(w/2 - w * self.freq_thres):round(w/2 + w * self.freq_thres)] = 0.0
+        pass
         return res
 
 """contrastive learning"""
