@@ -1,4 +1,27 @@
 # HSF-Net: Hybrid Spatial and Frequency Domain Transformer Network for Polyp Segmentation
+# Abstract
+Accurate polyp segmentation significantly contributes to the early diagnosis and prompt
+clinical intervention of colorectal cancer. However, most existing methods mainly con-
+centrate on pixel-level feature learning within the spatial domain, while overlooking in-
+formative frequency-domain cues and ignoring the cross-scale dependencies among pixels.
+To this end, we propose a novel Hybrid Spatial and Frequency Domain Transformer Net-
+work (HSF-Net) for polyp segmentation. The novelty of our work is threefold. First, we
+design a Frequency-aware Feature Extraction (FFE) module that explicitly decomposes
+features into high- and low-frequency components. This allows the model to explicitly
+capture high-frequency boundary details and low-frequency global structures, leading to
+more precise polyp representations. Second, to model cross-scale dependencies, we intro-
+duce a Hierarchical Feature Learning (HFL) module to adaptively fuse features across
+multiple encoder stages. Finally, a Semantic Bridging Attention (SBA) module is pro-
+posed, which leverages semantic priors from HFL or low-level encoder features as guid-
+ance. It adaptively calibrates the low-level, high-resolution features propagated via skip
+connections, effectively bridging the semantic gap between deep frequency-domain rep-
+resentations and shallow spatial details. Extensive experiments on five public datasets
+demonstrate the superiority of our approach. It achieves an mDice of 0.932 on Kvasir-SEG
+and 0.818 on ETIS, outperforming 11 state-of-the-art techniques.
+
+
+
+
 # 1. Create environment
 - Create conda environment with following command conda create -n HSFNet python=3.9
 - Activate environment with following command conda activate HSFNet
