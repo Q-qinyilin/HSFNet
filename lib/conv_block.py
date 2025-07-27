@@ -495,7 +495,7 @@ class FrequencyExtract(nn.Module):
     def forward(self, x):
         freq_weight = self.freq_weight_conv(x)   #  [8 2 11 11]
         
-        if self.act == 'sigmoid':       # 经过sigmoid
+        if self.act == 'sigmoid':       
             freq_weight = freq_weight.sigmoid()
         elif self.act == 'softmax':
             freq_weight = freq_weight.softmax(dim=1) * freq_weight.shape[1]
@@ -507,17 +507,6 @@ class FrequencyExtract(nn.Module):
         _, _, h, w = x.shape
         low_mask[:,:,round(h/2 - h * self.freq_thres):round(h/2 + h * self.freq_thres), round(w/2 - w * self.freq_thres):round(w/2 + w * self.freq_thres)] = 1.0
         high_mask[:,:,round(h/2 - h * self.freq_thres):round(h/2 + h * self.freq_thres), round(w/2 - w * self.freq_thres):round(w/2 + w * self.freq_thres)] = 0.0
-
-        low_part = torch.fft.ifft2(torch.fft.ifftshift(x_fft * low_mask)).real 
-        high_part = x - low_part            
-        low_x_fft = x_fft * low_mask   
-        high_x_fft = x_fft * high_mask     
-        low_c_att = torch.sqrt(self.channel_att_low(low_x_fft.real) ** 2 + self.channel_att_low(low_x_fft.imag) ** 2 + 1e-8)
-        high_c_att = torch.sqrt(self.channel_att_high(high_x_fft.real) ** 2 + self.channel_att_high(high_x_fft.imag) ** 2 + 1e-8)
-        low_part = low_part * freq_weight[:, 0:1,] * low_c_att     
-        high_part = high_part * freq_weight[:, 1:2,] * high_c_att  
-        res = low_part + high_part      
-        if self.channel_res: res += x
         return res
 
 """contrastive learning"""
