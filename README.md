@@ -4,8 +4,8 @@
 - Activate environment with following command conda activate HSFNet
 - Install requirements with following command pip install -r requirements.txt
 
-```bash
-pip install -r requirements.txt
+	```bash
+	pip install -r requirements.txt
 
 # 2. Prepare datasets
 - Download Train/Test datasets from following [Dataset](https://github.com/DengPingFan/PraNet)
