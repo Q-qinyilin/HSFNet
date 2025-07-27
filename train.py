@@ -150,17 +150,14 @@ if __name__ == '__main__':
     dict_plot = {'CVC-300':[], 'CVC-ClinicDB':[], 'Kvasir':[], 'CVC-ColonDB':[], 'ETIS-LaribPolypDB':[], 'test':[]}
     name = ['CVC-300', 'CVC-ClinicDB', 'Kvasir', 'CVC-ColonDB', 'ETIS-LaribPolypDB', 'test']
     ##################model_name#############################
-    model_name = 'ablation_TMF_SMA'
+    model_name = 'HSFNet'
     ###############################################
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--epoch', type=int,
                         default=100, help='epoch number')
 
-    parser.add_argument('--lr', type=float,
-           
-           
-                        default=5*1e-5, help='learning rate')
+    parser.add_argument('--lr', type=float,default=5*1e-5, help='learning rate')
 
     parser.add_argument('--optimizer', type=str,
                         default='AdamW', help='choosing optimizer AdamW or SGD')
@@ -196,7 +193,7 @@ if __name__ == '__main__':
 
     opt = parser.parse_args()
     with open('train_log.log', 'a') as f:
-        f.write('\n\n')  # 添加一个空行，隔开上一轮的日志
+        pass
     logging.basicConfig(filename='train_log.log',
                         format='[%(asctime)s-%(filename)s-%(levelname)s:%(message)s]',
                         level=logging.INFO, filemode='a', datefmt='%Y-%m-%d %H:%M:%S')
