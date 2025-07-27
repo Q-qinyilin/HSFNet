@@ -10,9 +10,7 @@ import torch.nn.functional as F
 import numpy as np
 import logging
 import matplotlib.pyplot as plt
-
-#-------------------------------------
-from lib.HSF import HSFNet     # 所提出的网络
+from lib.pvt import HSFNet  
 
 
 def structure_loss(pred, mask):
@@ -113,7 +111,7 @@ def train(train_loader, model, optimizer, epoch, test_path):
 
     global dict_plot
 
-    test1path = '/home/qyl/dataset/Polyp_dataset/TestDataset/'
+    test1path = '/home/dataset/Polyp_dataset/TestDataset/'
     if (epoch + 1) % 1 == 0:
         for dataset in ['CVC-300', 'CVC-ClinicDB', 'Kvasir', 'CVC-ColonDB', 'ETIS-LaribPolypDB']:
             dataset_dice = test(model, test1path, dataset)
@@ -125,8 +123,8 @@ def train(train_loader, model, optimizer, epoch, test_path):
         dict_plot['test'].append(meandice)
         if meandice > best:
             best = meandice
-            torch.save(model.state_dict(), save_path + 'PolypPVT.pth')
-            torch.save(model.state_dict(), save_path +str(epoch)+ 'PolypPVT-best.pth')
+            torch.save(model.state_dict(), save_path + 'Polyp.pth')
+            torch.save(model.state_dict(), save_path +str(epoch)+ 'Polyp-best.pth')
             print('==================================================================== best', best)
             logging.info('===================================================best:{}'.format(best))
 
@@ -181,11 +179,11 @@ if __name__ == '__main__':
                         default=50, help='every n epochs decay learning rate')
 
     parser.add_argument('--train_path', type=str,
-                        default='/home/qyl/dataset/Polyp_dataset/TrainDataset/',
+                        default='/home/dataset/Polyp_dataset/TrainDataset/',
                         help='path to train dataset')
 
     parser.add_argument('--test_path', type=str,
-                        default='/home/qyl/dataset/Polyp_dataset/TestDataset/',
+                        default='/home/dataset/Polyp_dataset/TestDataset/',
                         help='path to testing Kvasir dataset')
 
     parser.add_argument('--train_save', type=str,

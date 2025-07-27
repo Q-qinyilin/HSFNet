@@ -22,7 +22,7 @@ if __name__ == '__main__':
     for _data_name in ['CVC-300', 'CVC-ClinicDB', 'Kvasir', 'CVC-ColonDB', 'ETIS-LaribPolypDB']:
 
         ##### put data_path here #####
-        data_path = '/home/qyl/dataset/Polyp_dataset/TestDataset/{}'.format(_data_name)
+        data_path = '/home/dataset/Polyp_dataset/TestDataset/{}'.format(_data_name)
         ##### save_path #####
         save_path = './result_map/HSFNet/{}/'.format(_data_name)
 
