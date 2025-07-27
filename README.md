@@ -7,3 +7,5 @@
 The complete code will be released once the paper is accepted.  
 Pvtv2 preweight 
 
+# 2. Prepare datasets
+- Download Train/Test datasets from following [Dataset](https://github.com/DengPingFan/PraNet)
