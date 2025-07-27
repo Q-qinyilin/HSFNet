@@ -6,7 +6,7 @@
 
 ```bash
 pip install -r requirements.txt
-</pre>
+
 # 2. Prepare datasets
 - Download Train/Test datasets from following [Dataset](https://github.com/DengPingFan/PraNet)
 - PVTv2's pretrained weights can be downloaded from [Baidu Cloud](https://pan.baidu.com/s/102okWTGyitsohp81ZaleZw?pwd=eg8n)(code: eg8n)
