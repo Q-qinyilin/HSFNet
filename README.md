@@ -34,7 +34,7 @@ pip install -r requirements.txt
 
 # 2. Prepare datasets
 - Download Train/Test datasets from following [Dataset](https://github.com/DengPingFan/PraNet)
-- PvTv2's pretrained weights can be downloaded from [Baidu Drive](https://pan.baidu.com/s/102okWTGyitsohp81ZaleZw?pwd=eg8n)(code: eg8n)
+- PvTv2's pretrained weights can be downloaded from [Baidu Drive](https://pan.baidu.com/s/102okWTGyitsohp81ZaleZw?pwd=eg8n)(Code: eg8n)
 - HSFNet pretrained weights can be download from [Baidu Drive](https://pan.baidu.com/s/1aSJbEu2bab4NbJ2xtMVmHQ)(Code: bh9i)
 # 3. Train & Test
 ```bash
