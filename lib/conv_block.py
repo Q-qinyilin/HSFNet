@@ -6,6 +6,9 @@ from typing import Tuple
 import mmcv
 import sys
 import os
+from einops import rearrange
+import numbers
+import numpy as np
 # 获取项目根目录路径（假设HSNet1是项目根目录）
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(project_root)
@@ -62,39 +65,6 @@ class BNPReLU(nn.Module):
         output = self.acti(output)
         
         return output
-
-class GateFusion(nn.Module):
-    def __init__(self, in_planes):
-        self.init__ = super(GateFusion, self).__init__()
-        
-        self.gate_1 = nn.Conv2d(in_planes*2, 1, kernel_size=1, bias=True)
-        self.gate_2 = nn.Conv2d(in_planes*2, 1, kernel_size=1, bias=True)
-        
-        
-        self.softmax = nn.Softmax(dim=1)
-
-    def forward(self, x1, x2):
-        
-        ###
-        cat_fea = torch.cat([x1,x2], dim=1)
-        
-        ###
-        att_vec_1  = self.gate_1(cat_fea)
-        att_vec_2  = self.gate_2(cat_fea)
-
-        att_vec_cat  = torch.cat([att_vec_1, att_vec_2], dim=1)
-        att_vec_soft = self.softmax(att_vec_cat)
-        
-        att_soft_1, att_soft_2 = att_vec_soft[:, 0:1, :, :], att_vec_soft[:, 1:2, :, :]
-        x_fusion = x1 * att_soft_1 + x2 * att_soft_2
-        
-        return x_fusion
-
-
-
-from einops import rearrange
-import numbers
-import numpy as np
 
 def to_3d(x):
     return rearrange(x, 'b c h w -> b (h w) c')
@@ -174,38 +144,7 @@ class ConvMlp(nn.Module):
         x = self.fc2(x)
         return x
     
-class RCA(nn.Module):
-    def __init__(self, inp, kernel_size=1, ratio=1, band_kernel_size=11, dw_size=(1, 1), padding=(0, 0), stride=1,
-                 square_kernel_size=2, relu=True):
-        super(RCA, self).__init__()
-        self.dwconv_hw = nn.Conv2d(inp, inp, square_kernel_size, padding=square_kernel_size // 2, groups=inp)
-        self.pool_h = nn.AdaptiveAvgPool2d((None, 1))
-        self.pool_w = nn.AdaptiveAvgPool2d((1, None))
 
-        gc = inp // ratio
-        self.excite = nn.Sequential(
-            nn.Conv2d(inp, gc, kernel_size=(1, band_kernel_size), padding=(0, band_kernel_size // 2), groups=gc),
-            nn.BatchNorm2d(gc),
-            nn.ReLU(inplace=True),
-            nn.Conv2d(gc, inp, kernel_size=(band_kernel_size, 1), padding=(band_kernel_size // 2, 0), groups=gc),
-            nn.Sigmoid()
-        )
-
-    def sge(self, x):
-        # [N, D, C, 1]
-        x_h = self.pool_h(x)
-        x_w = self.pool_w(x)
-        x_gather = x_h + x_w # .repeat(1,1,1,x_w.shape[-1])
-        ge = self.excite(x_gather) # [N, 1, C, 1]
-
-        return ge
-
-    def forward(self, x):
-        loc = self.dwconv_hw(x)
-        att = self.sge(x)
-        out = att * loc
-
-        return out
 
 class CA_Block(nn.Module):
     def __init__(self, in_dim):
@@ -349,23 +288,6 @@ class Hblock(nn.Module):
 
 
 class SELayer(nn.Module):
-    """Squeeze-and-Excitation Module.
-
-    Args:
-        channels (int): The input (and output) channels of the SE layer.
-        ratio (int): Squeeze ratio in SELayer, the intermediate channel will be
-            ``int(channels/ratio)``. Default: 16.
-        conv_cfg (None or dict): Config dict for convolution layer.
-            Default: None, which means using conv2d.
-        act_cfg (dict or Sequence[dict]): Config dict for activation layer.
-            If act_cfg is a dict, two activation layers will be configured
-            by this dict. If act_cfg is a sequence of dicts, the first
-            activation layer will be configured by the first dict and the
-            second activation layer will be configured by the second dict.
-            Default: (dict(type='ReLU'), dict(type='HSigmoid', bias=3.0,
-            divisor=6.0)).
-    """
-
     def __init__(self,
                  channels,
                  ratio=16,
