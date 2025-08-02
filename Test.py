@@ -3,7 +3,7 @@ import torch.nn.functional as F
 import numpy as np
 import os, argparse
 from scipy import misc
-# from lib.HSNet import HSNet
+
 from lib.pvt import HSFNet
 
 from utils.dataloader import test_dataset

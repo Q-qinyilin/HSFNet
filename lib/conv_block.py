@@ -9,7 +9,7 @@ import os
 from einops import rearrange
 import numbers
 import numpy as np
-# 获取项目根目录路径（假设HSNet1是项目根目录）
+
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(project_root)
 from lib.conv_ import ConvModule,PPM
