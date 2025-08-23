@@ -41,7 +41,7 @@ pip install -r requirements.txt
 - PvTv2's pretrained weights can be downloaded from [Baidu Drive](https://pan.baidu.com/s/102okWTGyitsohp81ZaleZw?pwd=eg8n)(Code: eg8n)
 - HSFNet pretrained weights can be download from [Baidu Drive](https://pan.baidu.com/s/1aSJbEu2bab4NbJ2xtMVmHQ)(Code: bh9i)
 ```bash
-|-- data
+|-- Dataset
 |   |-- TestDataset
 |   |   |-- CVC-300
 |   |   |   |-- images
