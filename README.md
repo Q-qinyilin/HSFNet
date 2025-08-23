@@ -63,7 +63,7 @@ pip install -r requirements.txt
 |       `-- masks
 ```
 
-# 3. Train & Test
+# 3. Train & Test &Eval
 To train the model with code, simply replace the dataset path in the Train.py file with your own dataset path, and then use the following command to start training.
 ```bash
 python Train.py
@@ -72,6 +72,11 @@ To test the model with code, simply replace the dataset path in the Test.py file
 ```bash
 python Test.py
 ```
+To validate the model with code, simply replace the dataset path in the eval_.py file with your prediction path, and then use the following command to start validation.
+```bash
+python eval_.py
+```
+
 # 4. Acknowledgement
 We are very grateful for these excellent works [PraNet](https://github.com/DengPingFan/PraNet), [Polyp-PVT](https://github.com/DengPingFan/Polyp-PVT) and [UACANet](https://github.com/plemeri/UACANet/tree/main/configs), which have provided the basis for our framework.
 
