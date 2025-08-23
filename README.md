@@ -86,7 +86,7 @@ python eval_.py
 ```
 # 4. Reproducing this work
 Download our provided pretrained weights and the dataset, use the Test.py file to load the weights and obtain the test results, and run the eval_.py file to get the results.
-
+Download our best result checkpoint and pre-computed maps from following [URL](https://pan.baidu.com/s/1uulOhMu5VZIfvBAuNf6XHA?pwd=rdgt) for HSFNet.
 
 # 5. Acknowledgement
 We are very grateful for these excellent works [PraNet](https://github.com/DengPingFan/PraNet), [Polyp-PVT](https://github.com/DengPingFan/Polyp-PVT) and [UACANet](https://github.com/plemeri/UACANet/tree/main/configs), which have provided the basis for our framework.
