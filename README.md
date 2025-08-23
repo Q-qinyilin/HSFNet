@@ -35,6 +35,14 @@ CUDA: 11.8
 ```bash
 pip install -r requirements.txt
 ```
+The most important packages are as follows.  
+torch==1.10.1  
+torchvision==0.11.2  
+numpy==1.25.0  
+opencv-python==4.10.0.84  
+mmcv-full==1.1.5  
+mmsegmentation==1.2.2  
+
 
 # 2. Prepare datasets
 - Download Train/Test datasets from following [Dataset](https://github.com/DengPingFan/PraNet)
