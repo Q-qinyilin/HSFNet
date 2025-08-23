@@ -76,10 +76,13 @@ To validate the model with code, simply replace the dataset path in the eval_.py
 ```bash
 python eval_.py
 ```
+# 4. Reproducing this work
+Download our provided pretrained weights and the dataset, use the Test.py file to load the weights and obtain the test results, and run the eval_.py file to get the results.
 
-# 4. Acknowledgement
+
+# 5. Acknowledgement
 We are very grateful for these excellent works [PraNet](https://github.com/DengPingFan/PraNet), [Polyp-PVT](https://github.com/DengPingFan/Polyp-PVT) and [UACANet](https://github.com/plemeri/UACANet/tree/main/configs), which have provided the basis for our framework.
 
-# 5. FAQ
+# 6. FAQ
 Since our paper has not been accepted yet, we have temporarily hidden the core part of our code. Once the paper is accepted, we will release it immediately.
 If you have any questions, please feel free to contact us without hesitation (chinjolin@163.com).
