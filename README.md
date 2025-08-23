@@ -40,6 +40,28 @@ pip install -r requirements.txt
 - Download Train/Test datasets from following [Dataset](https://github.com/DengPingFan/PraNet)
 - PvTv2's pretrained weights can be downloaded from [Baidu Drive](https://pan.baidu.com/s/102okWTGyitsohp81ZaleZw?pwd=eg8n)(Code: eg8n)
 - HSFNet pretrained weights can be download from [Baidu Drive](https://pan.baidu.com/s/1aSJbEu2bab4NbJ2xtMVmHQ)(Code: bh9i)
+|-- data
+|   |-- TestDataset
+|   |   |-- CVC-300
+|   |   |   |-- images
+|   |   |   `-- masks
+|   |   |-- CVC-ClinicDB
+|   |   |   |-- images
+|   |   |   `-- masks
+|   |   |-- CVC-ColonDB
+|   |   |   |-- images
+|   |   |   `-- masks
+|   |   |-- ETIS-LaribPolypDB
+|   |   |   |-- images
+|   |   |   `-- masks
+|   |   `-- Kvasir
+|   |       |-- images
+|   |       `-- masks
+|   `-- TrainDataset
+|       |-- images
+|       `-- masks
+
+
 # 3. Train & Test
 ```bash
 python Train.py
