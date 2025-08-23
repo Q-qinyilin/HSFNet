@@ -24,6 +24,10 @@ and 0.818 on ETIS, outperforming 11 state-of-the-art techniques.
 
 
 # 1. Create environment
+OS: Ubuntu 20.04
+Python: 3.9
+CUDA: 11.7
+
 - Create conda environment with following command conda create -n HSFNet python=3.9
 - Activate environment with following command conda activate HSFNet
 - Install requirements with following command pip install -r requirements.txt
