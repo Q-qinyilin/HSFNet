@@ -81,9 +81,9 @@ To test the model with code, simply replace the dataset path in the Test.py file
 ```bash
 python Test.py
 ```
-To validate the model with code, simply replace the dataset path in the eval_.py file with your prediction path, and then use the following command to start validation.
+To validate the model with code, simply replace the dataset path in the eval/main.m file with your prediction path, and then use the following command to start validation.
 ```bash
-python eval_.py
+Run main.m
 ```
 # 4. Reproducing this work
 Download our provided pretrained weights and the dataset, use the Test.py file to load the weights and obtain the test results, and run the eval_.py file to get the results.
