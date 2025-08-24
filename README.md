@@ -71,7 +71,7 @@ mmsegmentation==1.2.2
 |       `-- masks
 ```
 
-# 3. Train & Test &Eval
+# 3. Train & Test & Eval
 To train the model with code, simply replace the dataset path in the Train.py file with your own dataset path, and then use the following command to start training.
 ```bash
 python Train.py
