@@ -47,8 +47,7 @@ mmsegmentation==1.2.2
 # 2. Prepare datasets
 - Download Train/Test datasets from following [Dataset](https://github.com/DengPingFan/PraNet)
 - PvTv2's pretrained weights can be downloaded from [Baidu Drive](https://pan.baidu.com/s/102okWTGyitsohp81ZaleZw?pwd=eg8n)(Code: eg8n)
-- HSFNet pretrained weights can be download from [Baidu Drive](https://pan.baidu.com/s/1aSJbEu2bab4NbJ2xtMVmHQ)(Code: bh9i)
-- Ablation experiment pretrained weights can be download from [Baidu Drive](https://pan.baidu.com/s/1mTRMS-N86F1XY2e94A_0Rw?pwd=fw9a)(Code: fw9a)
+
 ```bash
 |-- Dataset
 |   |-- TestDataset
