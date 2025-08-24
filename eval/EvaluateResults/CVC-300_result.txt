@@ -1,0 +1,1 @@
+(Dataset:CVC-300; Model:PraNet) meanDic:NaN;meanIoU:NaN;wFm:NaN;Sm:NaN;meanEm:NaN;MAE:NaN;maxEm:NaN;maxDice:NaN;maxIoU:NaN;meanSen:NaN;maxSen:NaN;meanSpe:NaN;maxSpe:NaN.
