@@ -87,6 +87,9 @@ Run main.m
 ```
 # 4. Reproducing this work
 Download our provided pretrained weights and the dataset, use the Test.py file to load the weights and obtain the test results, and then run main.m to generate the evaluation results.
+- HSFNet pretrained weights can be download from [Baidu Drive](https://pan.baidu.com/s/1aSJbEu2bab4NbJ2xtMVmHQ)(Code: bh9i)
+- Ablation experiment pretrained weights can be download from [Baidu Drive](https://pan.baidu.com/s/1mTRMS-N86F1XY2e94A_0Rw?pwd=fw9a)(Code: fw9a)
+
 # 5. Acknowledgement
 We are very grateful for these excellent works [PraNet](https://github.com/DengPingFan/PraNet), [Polyp-PVT](https://github.com/DengPingFan/Polyp-PVT) and [UACANet](https://github.com/plemeri/UACANet/tree/main/configs), which have provided the basis for our framework.
 
