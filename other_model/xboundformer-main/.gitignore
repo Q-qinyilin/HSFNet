@@ -1,0 +1,7 @@
+logs/
+results/
+exps/
+*.pth
+scripts/
+*.pyc
+figures/
