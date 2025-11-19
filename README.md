@@ -46,7 +46,7 @@ mmsegmentation==1.2.2
 
 # 2. Prepare datasets
 - Download Train/Test datasets from following [Dataset](https://github.com/DengPingFan/PraNet)
-- PvTv2's pretrained weights can be downloaded from [Baidu Drive](https://pan.baidu.com/s/102okWTGyitsohp81ZaleZw?pwd=eg8n)(Code: eg8n)
+
 
 ```bash
 |-- Dataset
@@ -71,7 +71,7 @@ mmsegmentation==1.2.2
 |       `-- masks
 ```
 
-# 3. Train & Test & Eval
+# 3. Train & Test
 To train the model with code, simply replace the dataset path in the Train.py file with your own dataset path, and then use the following command to start training.
 ```bash
 python Train.py
@@ -79,10 +79,6 @@ python Train.py
 To test the model with code, simply replace the dataset path in the Test.py file with your own dataset path, load your trained weights, and then use the following command to start testing.
 ```bash
 python Test.py
-```
-To validate the model with code, simply replace the dataset path in the eval/main.m file with your prediction path, and then use the following command to start validation.
-```bash
-Run main.m
 ```
 # 4. Reproducing this work
 Download our provided pretrained weights and the dataset, use the Test.py file to load the weights and obtain the test results, and then run main.m to generate the evaluation results.
